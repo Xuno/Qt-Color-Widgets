@@ -133,8 +133,11 @@ private Q_SLOTS:
 
     void on_buttonBox_clicked(QAbstractButton*);
 
+    void changedFloatSpin(double value);
+
 private:
     void setColorInternal(const QColor &color);
+
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);

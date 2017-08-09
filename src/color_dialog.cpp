@@ -29,6 +29,7 @@
 #include <QMimeData>
 #include <QPushButton>
 #include <QScreen>
+#include <QDebug>
 
 namespace color_widgets {
 
@@ -129,6 +130,7 @@ void ColorDialog::setAlphaEnabled(bool a)
         p->ui.label_alpha->setVisible(a);
         p->ui.slide_alpha->setVisible(a);
         p->ui.spin_alpha->setVisible(a);
+        p->ui.dspin_alpha->setVisible(a);
 
         Q_EMIT alphaEnabledChanged(a);
     }
@@ -154,6 +156,20 @@ void ColorDialog::setButtonMode(ButtonMode mode)
 ColorDialog::ButtonMode ColorDialog::buttonMode() const
 {
     return p->button_mode;
+}
+
+
+void ColorDialog::changedFloatSpin(double value)
+{
+    QString dspinName=sender()->objectName();
+    QString spinName=QString("spin_%1").arg(dspinName.split("_").at(1));
+    //qDebug()<<"ColorDialog::changedFloatSpin"<<value<<dspinName<<spinName;
+    //QDoubleSpinBox* dp = qobject_cast<QDoubleSpinBox*>(sender());
+    QSpinBox* spin=Q_NULLPTR;
+    spin = sender()->parent()->findChild<QSpinBox*>(spinName);
+    if (spin != Q_NULLPTR){
+        spin->setValue(int(value*spin->maximum()));
+    }
 }
 
 void ColorDialog::update_widgets()
@@ -195,6 +211,14 @@ void ColorDialog::update_widgets()
     p->ui.slide_value->setFirstColor(QColor::fromHsvF(p->ui.wheel->hue(), p->ui.wheel->saturation(),0));
     p->ui.slide_value->setLastColor(QColor::fromHsvF(p->ui.wheel->hue(), p->ui.wheel->saturation(),1));
 
+    p->ui.dspin_red->setValue(col.redF());
+    p->ui.dspin_green->setValue(col.greenF());
+    p->ui.dspin_blue->setValue(col.blueF());
+    p->ui.dspin_alpha->setValue(col.alphaF());
+
+    p->ui.dspin_hue->setValue(p->ui.wheel->hue());
+    p->ui.dspin_saturation->setValue(col.saturationF());
+    p->ui.dspin_value->setValue(col.valueF());
 
     QColor apha_color = col;
     apha_color.setAlpha(0);
@@ -224,6 +248,8 @@ void ColorDialog::set_hsv()
                 p->ui.slide_saturation->value(),
                 p->ui.slide_value->value()
             ));
+
+
         update_widgets();
     }
 }
@@ -281,6 +307,7 @@ void ColorDialog::on_buttonBox_clicked(QAbstractButton *btn)
     default: break;
     }
 }
+
 
 void ColorDialog::dragEnterEvent(QDragEnterEvent *event)
 {
