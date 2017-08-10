@@ -42,7 +42,7 @@
        <item row="4" column="3">
         <widget class="QDoubleSpinBox" name="dspin_red">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -266,7 +266,7 @@
        <item row="5" column="3">
         <widget class="QDoubleSpinBox" name="dspin_green">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -279,7 +279,7 @@
        <item row="6" column="3">
         <widget class="QDoubleSpinBox" name="dspin_blue">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -292,7 +292,7 @@
        <item row="8" column="3">
         <widget class="QDoubleSpinBox" name="dspin_alpha">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -305,7 +305,7 @@
        <item row="2" column="3">
         <widget class="QDoubleSpinBox" name="dspin_value">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -318,7 +318,7 @@
        <item row="1" column="3">
         <widget class="QDoubleSpinBox" name="dspin_saturation">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
@@ -331,7 +331,7 @@
        <item row="0" column="3">
         <widget class="QDoubleSpinBox" name="dspin_hue">
          <property name="decimals">
-          <number>9</number>
+          <number>4</number>
          </property>
          <property name="maximum">
           <double>1.000000000000000</double>
