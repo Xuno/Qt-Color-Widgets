@@ -64,7 +64,7 @@ ColorDialog::ColorDialog(QWidget *parent, Qt::WindowFlags f) :
 
 QSize ColorDialog::sizeHint() const
 {
-    return QSize(400,0);
+    return QSize(600,0);
 }
 
 ColorWheel::DisplayFlags ColorDialog::wheelFlags() const
@@ -232,6 +232,9 @@ void ColorDialog::update_widgets()
         p->ui.edit_hex->setColor(col);
 
     p->ui.preview->setColor(col);
+    p->ui.edit_rgb->setText(QString("%1,%2,%3").arg(col.red(),3).arg(col.green(),3).arg(col.blue(),3));
+    p->ui.edit_rgb_float->setText(QString("%1,%2,%3").arg(QString().sprintf("%5.4f", col.redF())).arg(QString().sprintf("%5.4f", col.greenF())).arg(QString().sprintf("%5.4f", col.blueF())));
+    //p->ui.edit_rgb_float->setText(QString("%1,%2,%3").arg(col.redF(),4).arg(col.greenF(),4).arg(col.blueF(),4));
 
     blockSignals(blocked);
     Q_FOREACH(QWidget* w, findChildren<QWidget*>())

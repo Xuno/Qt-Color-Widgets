@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>491</width>
+    <width>604</width>
     <height>380</height>
    </rect>
   </property>
@@ -39,7 +39,55 @@
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="4" column="3">
+       <item row="3" column="0" colspan="5">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Green</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_green">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QSpinBox" name="spin_hue">
+         <property name="wrapping">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <number>359</number>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_alpha">
+         <property name="text">
+          <string>Alpha</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="3">
+        <widget class="QSpinBox" name="spin_alpha">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4">
         <widget class="QDoubleSpinBox" name="dspin_red">
          <property name="decimals">
           <number>4</number>
@@ -52,87 +100,10 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="1" colspan="2">
-        <widget class="color_widgets::ColorLineEdit" name="edit_hex">
-         <property name="font">
-          <font>
-           <family>Monospace</family>
-          </font>
-         </property>
-         <property name="showAlpha" stdset="0">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="2">
-        <widget class="QSpinBox" name="spin_alpha">
+       <item row="1" column="3">
+        <widget class="QSpinBox" name="spin_saturation">
          <property name="maximum">
           <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0" colspan="4">
-        <widget class="Line" name="line_alpha">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="4">
-        <widget class="Line" name="line">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="4">
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="color_widgets::HueSlider" name="slide_hue">
-         <property name="minimum">
-          <number>0</number>
-         </property>
-         <property name="maximum">
-          <number>359</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_value">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_saturation">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Blue</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>Saturation</string>
          </property>
         </widget>
        </item>
@@ -150,120 +121,39 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_red">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_5">
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_9">
          <property name="text">
-          <string>Value</string>
+          <string>RGB</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_alpha">
-         <property name="maximum">
-          <number>255</number>
+       <item row="12" column="2" colspan="3">
+        <widget class="QLineEdit" name="edit_rgb_float">
+         <property name="font">
+          <font>
+           <family>Monospace</family>
+          </font>
          </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+         <property name="maxLength">
+          <number>50</number>
          </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Green</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_green">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QSpinBox" name="spin_hue">
-         <property name="wrapping">
+         <property name="readOnly">
           <bool>true</bool>
          </property>
-         <property name="maximum">
-          <number>359</number>
+         <property name="showAlpha" stdset="0">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_alpha">
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>Alpha</string>
+          <string>RGB Float</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QSpinBox" name="spin_saturation">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="color_widgets::GradientSlider" name="slide_blue">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Red</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QSpinBox" name="spin_value">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QSpinBox" name="spin_blue">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QSpinBox" name="spin_green">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QSpinBox" name="spin_red">
-         <property name="maximum">
-          <number>255</number>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="3">
+       <item row="5" column="4">
         <widget class="QDoubleSpinBox" name="dspin_green">
          <property name="decimals">
           <number>4</number>
@@ -276,7 +166,14 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="3">
+       <item row="5" column="3">
+        <widget class="QSpinBox" name="spin_green">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="4">
         <widget class="QDoubleSpinBox" name="dspin_blue">
          <property name="decimals">
           <number>4</number>
@@ -289,33 +186,38 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="3">
-        <widget class="QDoubleSpinBox" name="dspin_alpha">
-         <property name="decimals">
-          <number>4</number>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Red</string>
          </property>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_blue">
          <property name="maximum">
-          <double>1.000000000000000</double>
+          <number>255</number>
          </property>
-         <property name="singleStep">
-          <double>0.010000000000000</double>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item row="2" column="3">
-        <widget class="QDoubleSpinBox" name="dspin_value">
-         <property name="decimals">
-          <number>4</number>
-         </property>
+        <widget class="QSpinBox" name="spin_value">
          <property name="maximum">
-          <double>1.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.010000000000000</double>
+          <number>255</number>
          </property>
         </widget>
        </item>
-       <item row="1" column="3">
+       <item row="6" column="3">
+        <widget class="QSpinBox" name="spin_blue">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
         <widget class="QDoubleSpinBox" name="dspin_saturation">
          <property name="decimals">
           <number>4</number>
@@ -328,7 +230,40 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="3">
+       <item row="2" column="4">
+        <widget class="QDoubleSpinBox" name="dspin_value">
+         <property name="decimals">
+          <number>4</number>
+         </property>
+         <property name="maximum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.010000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="4">
+        <widget class="QDoubleSpinBox" name="dspin_alpha">
+         <property name="decimals">
+          <number>4</number>
+         </property>
+         <property name="maximum">
+          <double>1.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.010000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QSpinBox" name="spin_red">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
         <widget class="QDoubleSpinBox" name="dspin_hue">
          <property name="decimals">
           <number>4</number>
@@ -338,6 +273,125 @@
          </property>
          <property name="singleStep">
           <double>0.010000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="2" colspan="3">
+        <widget class="color_widgets::ColorLineEdit" name="edit_hex">
+         <property name="font">
+          <font>
+           <family>Monospace</family>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="maxLength">
+          <number>50</number>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="showAlpha" stdset="0">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Value</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_saturation">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Blue</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_red">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_alpha">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="5">
+        <widget class="Line" name="line_alpha">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="color_widgets::HueSlider" name="slide_hue">
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>359</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="5">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Saturation</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="color_widgets::GradientSlider" name="slide_value">
+         <property name="maximum">
+          <number>255</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2" colspan="3">
+        <widget class="QLineEdit" name="edit_rgb">
+         <property name="maxLength">
+          <number>50</number>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
