@@ -161,14 +161,15 @@ ColorDialog::ButtonMode ColorDialog::buttonMode() const
 
 void ColorDialog::changedFloatSpin(double value)
 {
+    Q_UNUSED(value);
+    if (signalsBlocked()) return;
     QString dspinName=sender()->objectName();
-    QString spinName=QString("spin_%1").arg(dspinName.split("_").at(1));
-    //qDebug()<<"ColorDialog::changedFloatSpin"<<value<<dspinName<<spinName;
-    //QDoubleSpinBox* dp = qobject_cast<QDoubleSpinBox*>(sender());
-    QSpinBox* spin=Q_NULLPTR;
-    spin = sender()->parent()->findChild<QSpinBox*>(spinName);
-    if (spin != Q_NULLPTR){
-        spin->setValue(int(value*spin->maximum()));
+    QString spinName=dspinName.split("_").at(1);
+    const QStringList slist = QStringList()<<"red"<<"green"<<"blue";
+    if (slist.indexOf(spinName)!=-1){
+        set_rgb(true);
+    }else{
+        set_hsv(true);
     }
 }
 
@@ -239,32 +240,52 @@ void ColorDialog::update_widgets()
     Q_EMIT colorChanged(col);
 }
 
-void ColorDialog::set_hsv()
+void ColorDialog::set_hsv(bool floatPrefer)
 {
     if ( !signalsBlocked() )
     {
-        p->ui.wheel->setColor(QColor::fromHsv(
-                p->ui.slide_hue->value(),
-                p->ui.slide_saturation->value(),
-                p->ui.slide_value->value()
-            ));
-
+        if (floatPrefer){
+            p->ui.wheel->setColor(QColor::fromHsvF(
+                                      p->ui.dspin_hue->value(),
+                                      p->ui.dspin_saturation->value(),
+                                      p->ui.dspin_value->value()
+                                      ));
+        }else{
+            p->ui.wheel->setColor(QColor::fromHsv(
+                                      p->ui.slide_hue->value(),
+                                      p->ui.slide_saturation->value(),
+                                      p->ui.slide_value->value()
+                                      ));
+        }
 
         update_widgets();
     }
 }
 
-void ColorDialog::set_rgb()
+void ColorDialog::set_rgb(bool floatPrefer)
 {
     if ( !signalsBlocked() )
     {
-        QColor col(
-                p->ui.slide_red->value(),
-                p->ui.slide_green->value(),
-                p->ui.slide_blue->value()
-            );
-        if (col.saturation() == 0)
-            col = QColor::fromHsv(p->ui.slide_hue->value(), 0, col.value());
+        QColor col;
+        if (floatPrefer){
+            col.setRgbF(p->ui.dspin_red->value(),
+                        p->ui.dspin_green->value(),
+                        p->ui.dspin_blue->value());
+        }else{
+            col.setRgb(
+                        p->ui.slide_red->value(),
+                        p->ui.slide_green->value(),
+                        p->ui.slide_blue->value()
+                        );
+        }
+
+        if (col.saturation() == 0){
+            if (floatPrefer){
+                col = QColor::fromHsvF(p->ui.dspin_hue->value(), 0, col.valueF());
+            }else{
+                col = QColor::fromHsv(p->ui.slide_hue->value(), 0, col.value());
+            }
+        }
         p->ui.wheel->setColor(col);
         update_widgets();
     }

@@ -124,9 +124,9 @@ private Q_SLOTS:
     /// Update all the Ui elements to match the selected color
     void update_widgets();
     /// Update from HSV sliders
-    void set_hsv();
+    void set_hsv(bool floatPrefer=false);
     /// Update from RGB sliders
-    void set_rgb();
+    void set_rgb(bool floatPrefer=false);
 
     void on_edit_hex_colorChanged(const QColor& color);
     void on_edit_hex_colorEditingFinished(const QColor& color);
