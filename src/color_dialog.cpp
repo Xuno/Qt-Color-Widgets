@@ -305,6 +305,15 @@ void ColorDialog::on_edit_hex_colorEditingFinished(const QColor& color)
     setColorInternal(color);
 }
 
+void ColorDialog::on_tbWhite_clicked(){
+    setColorInternal(QColor(Qt::white));
+}
+
+void ColorDialog::on_tbBlack_clicked()
+{
+    setColorInternal(QColor(Qt::black));
+}
+
 void ColorDialog::on_buttonBox_clicked(QAbstractButton *btn)
 {
     QDialogButtonBox::ButtonRole role = p->ui.buttonBox->buttonRole(btn);

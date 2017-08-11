@@ -135,6 +135,8 @@ private Q_SLOTS:
 
     void changedFloatSpin(double value);
 
+    void on_tbWhite_clicked();
+    void on_tbBlack_clicked();
 private:
     void setColorInternal(const QColor &color);
 
