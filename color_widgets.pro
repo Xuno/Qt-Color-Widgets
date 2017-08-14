@@ -23,8 +23,10 @@ TARGET=ColorWidgets-qt5
 
 VERSION=1.0.0
 
-CONFIG(release, debug|release):DESTDIR=../release
-CONFIG(debug, debug|release):DESTDIR=../debug
+win32:CONFIG(release, debug|release):DESTDIR=../release
+else:win32:CONFIG(debug, debug|release):DESTDIR=../debug
+else:unix:!macx:CONFIG(release, debug|release):DESTDIR=..
+else:unix:!macx:CONFIG(debug, debug|release):DESTDIR=..
 
 OBJECTS_DIR = out/obj
 MOC_DIR = out/generated
